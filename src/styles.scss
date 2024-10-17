@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "./../node_modules/prismjs/themes/prism-coy.css";
+@import "./../node_modules/animate.css/animate.min.css";
+@import "./../node_modules/font-awesome/css/font-awesome.min.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  outline: none;
+}
+
+.center {
+  text-align: center;
+}
+
+body {
+  font-family: var(--font-family);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --primary-default: "#3C91CF";
+  --primary-500: "#143177";
+  --secondary-default: "#0B132B";
+  --green-100: "#2cda9d";
+  --darkGreen-100: "#254441";
+  --red-100: "#db504a";
+  --primaryColor: #163e90;
+}
+
+@font-face {
+  font-family: "BEYOUNDMOUTAINS";
+  src: url("assets/fonts/BEYOND_THE_MOUNTAINS.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

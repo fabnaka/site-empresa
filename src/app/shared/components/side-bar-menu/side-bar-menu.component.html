@@ -1,0 +1,114 @@
+<aside
+  class="h-screen bg-secondary w-auto hidden lg:block text-white"
+  style="background-color: #0b132b; height: 100%"
+>
+  <img
+    src="../../../../assets//images//logo-sistema-fiems.png"
+    width="275"
+    alt="Logo sistema Fiems"
+    (click)="home()"
+    class="cursor-pointer"
+  />
+
+  <nav class="flex flex-column text-white">
+    <div class="font-medium text-white">
+      <li *ngFor="let item of model" class="cursor-pointer">
+        <a
+          (click)="rota(item.routerLink)"
+          class="flex align-items-center border-round-lg p-2"
+        >
+          <i style="font-size: 2rem; margin-left: 10px" [class]="item.icon"></i>
+          <span class="ml-3 flex-1 white-space-nowrap">{{ item.label }}</span>
+        </a>
+      </li>
+    </div>
+
+    <div class="fixed bottom-0 font-medium w-18rem">
+      <li class="pl-3">
+        <span class="ml-3 text-lg" style="color: #3c91cf"
+          >Bem-vindo, {{ usuario }}
+        </span>
+      </li>
+
+      <li class="cursor-pointer mt-3">
+        <a
+          (click)="logout()"
+          class="flex align-items-center border-round-lg p-2"
+        >
+          <lucide-angular name="LogOut"> </lucide-angular>
+
+          <span class="ml-3 flex-1 white-space-nowrap uppercase">Sair</span>
+        </a>
+      </li>
+    </div>
+  </nav>
+</aside>
+
+<!-- ////////////////////////////////// MOBILE MENU ////////////////////////////////// -->
+<button
+  pButton
+  type="button"
+  class="fixed right-0 top-0 block m-2 lg:hidden z-4"
+  (click)="toggleMobileMenu()"
+>
+  <i class="pi pi-bars text-2xl"></i>
+</button>
+
+<aside
+  class="fixed flex flex-column align-items-center left-0 top-0 z-4 h-full w-full bg-secondary"
+  *ngIf="showMobileMenu"
+>
+  <button
+    pButton
+    type="button"
+    class="fixed right-0 top-0 block m-2 lg:hidden z-4"
+    (click)="toggleMobileMenu()"
+  >
+    <i class="pi pi-times text-2xl"></i>
+  </button>
+
+  <img
+    src="../../../../assets//images//logo-sistema-fiems.png"
+    width="300"
+    (click)="home()"
+    alt="Logo sistema Fiems"
+  />
+  <nav
+    class="flex flex-column align-items-center justify-content-center text-white"
+  >
+    <ul class="flex flex-column justify-content-between text-xl font-medium">
+      <li
+        *ngFor="let item of model"
+        class="cursor-pointer"
+        (click)="toggleMobileMenu()"
+      >
+        <a
+          (click)="rota(item.routerLink)"
+          class="flex align-items-center border-round-lg p-2"
+        >
+          <i style="font-size: 2rem; margin-left: 10px" [class]="item.icon"></i>
+          <span class="ml-3 flex-1 white-space-nowrap">{{ item.label }}</span>
+        </a>
+      </li>
+
+      <li>
+        <span
+          class="ml-3 text-lg flex-1 white-space-nowrap"
+          style="color: #3c91cf"
+        >
+          {{ usuario }}
+        </span>
+      </li>
+
+      <li>
+        <a
+          (click)="logout()"
+          class="flex align-items-center border-round-lg p-2"
+        >
+          <lucide-angular name="LogOut"> </lucide-angular>
+          <span class="ml-3 flex-1 white-space-nowrap">Sair</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>

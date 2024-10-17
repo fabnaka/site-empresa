@@ -1,0 +1,14 @@
+<div *ngIf="!loading">
+  <section class="flex">
+    <app-side-bar-menu
+      class="flex-1"
+      style="background-color: #0b132b"
+    ></app-side-bar-menu>
+  
+    <div class="w-full">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </section>
+</div>

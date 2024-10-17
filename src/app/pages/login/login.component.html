@@ -1,0 +1,58 @@
+<section class="flex flex-column">
+  <div class="flex justify-content-center">
+    <img
+      src="../../../assets/images/logo.png"
+      width="400"
+      alt="Logo Sistema Fiems"
+    />
+  </div>
+
+  <div class="flex justify-content-center mt-6 px-3 md:px-0">
+    <form
+      [formGroup]="formGroup"
+      (ngSubmit)="salvar()"
+      class="w-30rem p-4 shadow-4"
+    >
+      <h2 class="text-center" style="color: #3c91cf">LOGIN</h2>
+
+      <div class="flex flex-column">
+        <div class="flex flex-column mb-5 size-width p-input-icon-left">
+          <label for="usuario" class="font-bold mb-2 text-lg">Usuário</label>
+
+          <i class="pi pi-user m-2 text-xl"></i>
+          <input
+            id="usuario"
+            type="text"
+            class="w-full h-3rem text-xl"
+            style="text-indent: 0.46rem"
+            pInputText
+            formControlName="usuario"
+          />
+        </div>
+
+        <div class="flex flex-column mb-4 size-width p-input-icon-left">
+          <label for="senha" class="font-bold mb-2 text-lg">Senha</label>
+
+          <i class="pi pi-lock m-2 text-xl"></i>
+          <input
+            id="senha"
+            type="password"
+            class="w-full h-3rem text-xl"
+            style="text-indent: 0.46rem"
+            pInputText
+            formControlName="senha"
+          />
+        </div>
+
+        <div class="w-full mt-4">
+          <button
+            pButton
+            class="w-full flex justify-content-center align-items-center h-3rem text-xl"
+          >
+            Entrar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

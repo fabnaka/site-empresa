@@ -1,0 +1,93 @@
+<div class="animate__animated animate__fadeIn">
+  <section class="m-4">
+    <div class="flex align-items-center gap-3">
+      <h2>Grupo Participante</h2>
+    </div>
+
+    <form [formGroup]="formGroup">
+      <div class="flex lg:flex-row flex-column md:justify-content-between mt-4 gap-4 mb-6">
+        <div class="flex md:flex-row flex-column md:gap-8 gap-3">
+          <div class="flex flex-column">
+            <label for="nome" class="font-bold mb-2">Descrição</label>
+
+            <input type="text" class="md:w-28rem h-3rem" pInputText formControlName="descricao" />
+          </div>
+
+          <div class="flex flex-column">
+            <label class="font-bold mb-2">Status</label>
+
+            <p-dropdown [options]="status" formControlName="ativo" styleClass="dropdown"></p-dropdown>
+          </div>
+        </div>
+
+        <div class="flex align-items-center">
+          <button icon="pi pi-plus" class="p-3 gap-3 uppercase w-full" (click)="criar()" pButton>
+            <span class="text-center w-full">Novo</span>
+          </button>
+        </div>
+
+      </div>
+    </form>
+
+    <p-table #dt [responsive]="true" [value]="dados" [columns]="columns" [lazy]="true" (onLazyLoad)="load($event)"
+      [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10, 25, 50, 100, 200, 300, 1000, 2000]"
+      [styleClass]="'p-datatable-gridlines p-datatable-striped'" [loading]="loading" [sortOrder]="1">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <ng-container *ngFor="let col of columns">
+            <th *ngIf="col.sort" [style.width.px]="col.w" [pSortableColumn]="col.field">
+              {{ col.header }}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th *ngIf="!col.sort" [style.width.px]="col.w">
+              {{ col.header }}
+            </th>
+          </ng-container>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+        <tr>
+          <td *ngFor="let col of columns" [ngClass]="{ center: col.center }">
+            <ng-container [ngSwitch]="col.field">
+              <ng-container *ngSwitchCase="'acao'">
+                <div style="text-align: center">
+                  <button pButton title="Editar" icon="pi pi-pencil" (click)="editar(rowData['id'])"></button>
+                  <button pButton class="p-button-danger" title="Excluir" icon="pi pi-trash"
+                    (click)="excluir(rowData['id'])"></button>
+                </div>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'ativo'">
+                <div style="text-align: center">
+                  <i style="font-weight: bold; color: green" *ngIf="rowData[col.field] === 'S'" class="pi pi-check"></i>
+                  <i style="font-weight: bold; color: red" *ngIf="rowData[col.field] !== 'S'" class="pi pi-times"></i>
+                </div>
+              </ng-container>
+
+              <ng-container *ngSwitchDefault>
+                {{ rowData[col.field] }}
+              </ng-container>
+            </ng-container>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="summary">
+        <div style="text-align: center">
+          Listado {{ dados.length }} grupo(s)
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length" style="text-align: center; font-style: italic">
+            Nenhum grupo encontrado.
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+</div>
+
+<p-confirmDialog></p-confirmDialog>

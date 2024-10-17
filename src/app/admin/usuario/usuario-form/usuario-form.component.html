@@ -1,0 +1,108 @@
+<div class="animate__animated animate__fadeIn">
+  <div class="flex align-items-center gap-3 m-4">
+    <button
+      pButton
+      icon="pi pi-arrow-left"
+      pTooltip="Voltar a página anterior"
+      tooltipPosition="top"
+      class="border-circle"
+      (click)="voltar()"
+    ></button>
+
+    <h2>Usuário - Cadastro</h2>
+  </div>
+
+  <section class="flex justify-content-center align-content-center m-4">
+    <form
+      [formGroup]="formGroup"
+      class="flex flex-column mb-4 shadow-2 p-4 w-full"
+    >
+      <div class="flex md:flex-row flex-column justify-content-between">
+        <div class="flex flex-column mb-4 w-full">
+          <label class="font-bold mb-2 text-lg">Nome Completo <small style="color: red; font-weight: bold;">*</small></label>
+
+          <input
+            type="text"
+            id="nome"
+            class="h-3rem"
+            pInputText
+            formControlName="nome"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="flex md:flex-row flex-column justify-content-between">
+        <div class="flex flex-column mb-4 size-width">
+          <label class="font-bold mb-2 text-lg">Usuário <small style="color: red; font-weight: bold;">*</small></label>
+
+          <input
+            type="text"
+            class="w-full h-3rem"
+            pInputText
+            formControlName="usuario"
+            required
+          />
+        </div>
+
+        <div class="flex flex-column mb-4 size-width">
+          <label class="font-bold mb-2 text-lg">Senha <small style="color: red; font-weight: bold;">*</small></label>
+
+          <input
+            type="password"
+            class="w-full h-3rem"
+            pInputText
+            formControlName="senha"
+          />
+        </div>
+      </div>
+
+      <div class="flex md:flex-row flex-column justify-content-between">
+        <div class="flex flex-column mb-4 size-width">
+          <label for="data do cadastro" class="font-bold mb-2 text-lg"
+            >Perfil</label
+          >
+
+          <input
+            class="w-full h-3rem"
+            pInputText
+            type="text"
+            formControlName="perfil"
+          />
+        </div>
+
+        <div class="flex flex-column mb-4 size-width">
+          <label for="entidade" class="font-bold mb-2 text-lg">Entidade</label>
+
+          <p-dropdown
+            styleClass="prime-slider-override"
+            formControlName="entidade"
+            [options]="entidade"
+          ></p-dropdown>
+        </div>
+      </div>
+
+      <div class="flex flex-column mb-4 size-width">
+        <label for="entidade" class="font-bold mb-2 text-lg">Ativo</label>
+
+        <p-checkbox
+          formControlName="ativo"
+          inputId="ativo"
+          [binary]="true"
+        ></p-checkbox>
+      </div>
+
+      <div class="flex align-items-end justify-content-end mt-4 w-full">
+        <button
+          icon="pi pi-save"
+          pButton
+          class="flex justify-content-center h-3rem w-full md:w-4"
+          (click)="salvar()"
+        >
+        <span class="text-center w-full">Salvar</span>
+          
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

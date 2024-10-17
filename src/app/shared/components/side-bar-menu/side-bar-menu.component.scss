@@ -1,0 +1,30 @@
+.bg-secondary {
+  background-color: #0b132b;
+}
+
+.bg-primaryy {
+  background-color: #3c91cf;
+}
+
+a {
+  color: #ffffff;
+}
+
+a:hover {
+  background-color: #3c91cf;
+
+  transition: all 500ms ease-in;
+}
+
+ul,
+li,
+a,
+ol {
+  list-style: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}

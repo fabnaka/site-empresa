@@ -1,0 +1,36 @@
+<button
+  class="mb-1 mr-1 rounded bg-pink-500 px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-pink-600"
+  type="button"
+  (click)="setShowModal()"
+>
+  Abrir Modal
+</button>
+
+<section *ngIf="showModal">
+  <div
+    class="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none"
+  >
+    <div class="relative mx-auto my-6 w-auto max-w-6xl">
+      <div
+        class="relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none"
+      >
+        <div
+          class="flex items-center justify-center space-x-4 rounded-t border-b border-solid border-slate-200 p-5 text-green"
+        >
+          <h3 class="text-3xl font-semibold">Presença Confirmada</h3>
+          <lucide-angular name="CheckCircle"></lucide-angular>
+        </div>
+
+        <div class="relative flex-auto p-6">
+          <p class="my-4 text-lg leading-relaxed text-slate-600">
+            Olá,
+            <b class="text-xl font-bold text-secondary"> Ronaldo da Silva </b>
+            . Sua presença está confirmada na reunião de hoje.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed inset-0 z-40 bg-black opacity-25"></div>
+</section>

@@ -1,0 +1,45 @@
+query login($data: UsuarioLoginInput!) {
+  login(data: $data) {
+ 		token
+  }
+}
+
+query filtrarUsuario($filter: UsuarioListInput!) {
+	filtrarUsuario(filter: $filter) {
+    count
+    rows {
+      id
+      usuario
+      nome
+      ativo
+    }
+	}
+}
+
+mutation criarAlterarUsuario($data: UsuarioInput!) {
+  criarAlterarUsuario(data: $data) {
+    id
+    usuario
+    nome
+    senha
+    ativo
+  }
+}
+
+query BuscarUsuarioPorId($buscarUsuarioPorIdId: Int!) {
+  buscarUsuarioPorId(id: $buscarUsuarioPorIdId) {
+    id
+    usuario
+    nome
+    senha
+    ativo
+  }
+}
+
+query usuarioLogado{
+  usuarioLogado {
+ 		id
+    nome
+    usuario
+  }
+}

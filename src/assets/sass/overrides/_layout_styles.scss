@@ -1,0 +1,50 @@
+/* Add your customizations of layout here */
+
+.layout-wrapper {
+  .layout-main {
+    min-height: 0;
+    max-height: calc(100vh - 96px);
+    height: calc(100vh - 96px);
+  }
+}
+
+.layout-wrapper {
+  .layout-main {
+    .layout-main-content {
+      padding: 0;
+    }
+  }
+}
+
+.splash-screen {
+  &:before {
+   background: #163E90;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+.p-datatable {
+  &.p-datatable-gridlines {
+    .p-datatable-tbody > tr > td {
+      button + button {
+        margin-left: 1px;
+      }
+    }
+  }
+}
+
+p {
+  line-height: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .layout-wrapper {
+    .layout-main {
+      height: calc((var(--vh, 1vh) * 100) - 60px);
+      // height: calc(100vh - 60px);
+    }
+  }
+}
