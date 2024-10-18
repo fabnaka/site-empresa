@@ -5,8 +5,8 @@ import { UsuarioListaComponent } from './admin/usuario/usuario-lista/usuario-lis
 import { LoginComponent } from './pages/login/login.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { UsuarioFormComponent } from './admin/usuario/usuario-form/usuario-form.component';
-import { GrupoListaComponent } from './admin/grupo/grupo-lista/grupo-lista.component';
-import { GrupoFormComponent } from './admin/grupo/grupo-form/grupo-form.component';
+import { EmpresaListaComponent } from './admin/grupo/empresa-lista/empresa-lista.component';
+import { EmpresaFormComponent } from './admin/grupo/empresa-form/empresa-form.component';
 
 @NgModule({
   imports: [
@@ -22,9 +22,9 @@ import { GrupoFormComponent } from './admin/grupo/grupo-form/grupo-form.componen
           { path: 'usuario/criar', component: UsuarioFormComponent },
           { path: 'usuario/:id', component: UsuarioFormComponent },
 
-          { path: 'grupo', component: GrupoListaComponent },
-          { path: 'grupo/:id', component: GrupoFormComponent },
-          { path: 'grupo/criar', component: GrupoFormComponent },
+          { path: 'empresa', component: EmpresaListaComponent },
+          { path: 'empresa/:id', component: EmpresaFormComponent },
+          { path: 'empresa/criar', component: EmpresaFormComponent },
         ],
       },
       { path: 'login', component: LoginComponent },

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import fs from "fs";
-//import { parse } from "csv-parse";
 
 @Component({
   selector: 'app-admin-home',
@@ -15,17 +13,7 @@ export class AdminHomeComponent implements OnInit  {
 
   }
   
-  ngOnInit(): void {
-    
-    // fs.createReadStream("")
-    // .pipe(parse({delimiter: ",", from_line: 2}))
-    // .on("data", function(row) {
-    //   console.log(row)
-    // })
-    // .on("end", function() {
-    //   console.log(row)
-    // })
-  }
+  ngOnInit(): void {}
   
 
 }

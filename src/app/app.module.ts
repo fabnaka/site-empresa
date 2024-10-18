@@ -56,8 +56,8 @@ import { DatexPipe } from './shared/pipes/datex.pipe';
 import { SharedModule } from './shared/shared.module';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { GrupoFormComponent } from './admin/grupo/grupo-form/grupo-form.component';
-import { GrupoListaComponent } from './admin/grupo/grupo-lista/grupo-lista.component';
+import { EmpresaFormComponent } from './admin/grupo/empresa-form/empresa-form.component';
+import { EmpresaListaComponent } from './admin/grupo/empresa-lista/empresa-lista.component';
 
 registerLocaleData(localePt);
 
@@ -71,8 +71,8 @@ registerLocaleData(localePt);
     ModalComponent,
     LoginComponent,
     AdminHomeComponent,
-    GrupoFormComponent,
-    GrupoListaComponent
+    EmpresaFormComponent,
+    EmpresaListaComponent
   ],
   imports: [
     BrowserModule,

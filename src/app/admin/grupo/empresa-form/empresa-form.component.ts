@@ -3,23 +3,16 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { Location } from '@angular/common';
-import { AlertService } from './../../../services/util/alert.service';
-// import {
-//   BuscarParticipantePorIdGQL,
-//   CriarAlterarParticipanteGQL,
-// } from './../../../generated/graphql';
+import { AlertService } from '../../../services/util/alert.service';
 import { add, format } from 'date-fns';
-import {
-  BuscarGrupoParticipantePorIdGQL,
-  CriarAlterarGrupoParticipanteGQL,
-} from 'src/app/generated/graphql';
+import { BuscarEmpresaPorIdGQL, CriarAlterarEmpresaGQL } from 'src/app/generated/graphql';
 
 @Component({
-  selector: 'app-grupo-form',
-  templateUrl: './grupo-form.component.html',
-  styleUrls: ['./grupo-form.component.scss'],
+  selector: 'app-empresa-form',
+  templateUrl: './empresa-form.component.html',
+  styleUrls: ['./empresa-form.component.scss'],
 })
-export class GrupoFormComponent implements OnInit {
+export class EmpresaFormComponent implements OnInit {
   formGroup: FormGroup;
   salvando: boolean = false;
 
@@ -28,10 +21,8 @@ export class GrupoFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
-    private criarAlterar: CriarAlterarGrupoParticipanteGQL,
-    //private criarAlterar: CriarAlterarUsuarioGQL,
-    private porId: BuscarGrupoParticipantePorIdGQL,
-    //private porId: BuscarUsuarioPorIdGQL,
+    private criarAlterar: CriarAlterarEmpresaGQL,
+    private porId: BuscarEmpresaPorIdGQL,
     private alert: AlertService,
   ) {
     this.formGroup = this.fb.group({
@@ -54,15 +45,11 @@ export class GrupoFormComponent implements OnInit {
   buscar(id: number) {
     this.porId
       .fetch({
-        buscarGrupoParticipantePorIdId: id,
+        buscarEmpresaPorIdId: id,
       })
       .subscribe(
         (rs) => {
-          this.formGroup.patchValue({
-            ...rs.data.buscarGrupoParticipantePorId,
-            ativo: rs.data.buscarGrupoParticipantePorId?.ativo == 'S' ? true : false,
-          });
-        },
+          this.formGroup.patchValue({...rs.data.buscarEmpresaPorId})},
         (err) => {
           console.log(err);
         },
@@ -83,8 +70,11 @@ export class GrupoFormComponent implements OnInit {
             id: this.formGroup.get('id')?.value
               ? this.formGroup.get('id')?.value
               : null,
-            descricao: this.formGroup.get('descricao')?.value,
-            ativo: this.formGroup.get('ativo')?.value ? 'S' : 'N',
+            nome: this.formGroup.get('nome')?.value,
+            cnpj: this.formGroup.get('cnpj')?.value,
+            endereco: this.formGroup.get('endereco')?.value,
+            telefone: this.formGroup.get('telefone')?.value,
+            email: this.formGroup.get('email')?.value
           },
         })
         .subscribe(

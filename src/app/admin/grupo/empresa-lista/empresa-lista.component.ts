@@ -4,19 +4,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LazyLoadEvent, SelectItem, ConfirmationService } from 'primeng/api';
 import { debounceTime } from 'rxjs/operators';
 //import { FiltrarParticipanteGQL , FiltrarUsuarioGQL } from './../../../generated/graphql'
-import { AlertService } from './../../../services/util/alert.service';
-import {
-  BuscarGrupoParticipantePorIdGQL,
-  CriarAlterarGrupoParticipanteGQL,
-  FiltrarGrupoParticipanteGQL,
-} from 'src/app/generated/graphql';
+import { AlertService } from '../../../services/util/alert.service';
+import { CriarAlterarGrupoParticipanteGQL, FiltrarGrupoParticipanteGQL, } from 'src/app/generated/graphql';
 
 @Component({
-  selector: 'app-grupo-lista',
-  templateUrl: './grupo-lista.component.html',
-  styleUrls: ['./grupo-lista.component.scss'],
+  selector: 'app-empresa-lista',
+  templateUrl: './empresa-lista.component.html',
+  styleUrls: ['./empresa-lista.component.scss'],
 })
-export class GrupoListaComponent implements OnInit {
+export class EmpresaListaComponent implements OnInit {
   @ViewChild('dt', { static: true })
   private dt: any;
   formGroup: FormGroup;

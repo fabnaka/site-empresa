@@ -21,16 +21,10 @@ export class SideBarMenuComponent implements OnInit {
     this.usuario = this.authService.getUser()?.nome as string;
 
     this.model = [
-      { label: 'Reunião', icon: 'fa fa-briefcase', routerLink: 'reuniao' },
       {
-        label: 'Participante',
-        icon: 'pi pi-users',
-        routerLink: 'participante',
-      },
-      {
-        label: 'Grupo',
-        icon: 'fa fa-users',
-        routerLink: 'grupo',
+        label: 'Empresa',
+        icon: 'fa fa-building',
+        routerLink: 'empresa',
       },
       { label: 'Usuário', icon: 'pi pi-user', routerLink: 'usuario' },
     ];
@@ -49,6 +43,6 @@ export class SideBarMenuComponent implements OnInit {
   }
 
   home() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 }
