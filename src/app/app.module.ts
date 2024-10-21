@@ -7,25 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
-import { AutoCompleteModule } from 'primeng/autocomplete';
 import { AlertService } from './services/util/alert.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
-import { CalendarModule } from 'primeng/calendar';
-import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
-import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DialogModule } from 'primeng/dialog';
-import { FileUploadModule } from 'primeng/fileupload';
-import { ImageModule } from 'primeng/image';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { BlockUIModule } from 'primeng/blockui';
-import { PanelModule } from 'primeng/panel';
-import { InputNumberModule } from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog'
+import { DropdownModule } from 'primeng/dropdown';
 
 //LUCIDE COMPONENTS
 import {
@@ -52,12 +43,11 @@ import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { UsuarioFormComponent } from './admin/usuario/usuario-form/usuario-form.component';
-import { DatexPipe } from './shared/pipes/datex.pipe';
 import { SharedModule } from './shared/shared.module';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { EmpresaFormComponent } from './admin/grupo/empresa-form/empresa-form.component';
-import { EmpresaListaComponent } from './admin/grupo/empresa-lista/empresa-lista.component';
+import { EmpresaFormComponent } from './admin/empresa/empresa-form/empresa-form.component';
+import { EmpresaListaComponent } from './admin/empresa/empresa-lista/empresa-lista.component';
 
 registerLocaleData(localePt);
 
@@ -77,15 +67,11 @@ registerLocaleData(localePt);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DropdownModule,
     ButtonModule,
     BrowserAnimationsModule,
-    AutoCompleteModule,
     CardModule,
-    CalendarModule,
     TableModule,
     DialogModule,
-    TooltipModule,
     InputTextModule,
     InputMaskModule,
     ReactiveFormsModule,
@@ -96,15 +82,10 @@ registerLocaleData(localePt);
     ToastModule,
     MessagesModule,
     SharedModule,
-    FileUploadModule,
     LucideAngularModule.pick({ FileSpreadsheet, LogOut, Menu, User, Users, X }),
-    ImageModule,
-    ProgressSpinnerModule,
-    BlockUIModule,
     FormsModule,
-    PanelModule,
-    InputNumberModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    DropdownModule
   ],
   providers: [
     {

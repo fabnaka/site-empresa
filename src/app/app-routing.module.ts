@@ -5,8 +5,8 @@ import { UsuarioListaComponent } from './admin/usuario/usuario-lista/usuario-lis
 import { LoginComponent } from './pages/login/login.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { UsuarioFormComponent } from './admin/usuario/usuario-form/usuario-form.component';
-import { EmpresaListaComponent } from './admin/grupo/empresa-lista/empresa-lista.component';
-import { EmpresaFormComponent } from './admin/grupo/empresa-form/empresa-form.component';
+import { EmpresaListaComponent } from './admin/empresa/empresa-lista/empresa-lista.component';
+import { EmpresaFormComponent } from './admin/empresa/empresa-form/empresa-form.component';
 
 @NgModule({
   imports: [

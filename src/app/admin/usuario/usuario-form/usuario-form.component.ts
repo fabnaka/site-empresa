@@ -14,11 +14,6 @@ import { AlertService } from './../../../../app/services/util/alert.service';
 export class UsuarioFormComponent implements OnInit {
   formGroup: FormGroup;
 
-  entidade: SelectItem[] = [
-    { label: 'SESI', value: 'SESI' },
-    { label: 'SENAI', value: 'SENAI' },
-  ];
-
   salvando: boolean = false;
 
   constructor(
@@ -35,8 +30,6 @@ export class UsuarioFormComponent implements OnInit {
       nome: [undefined, Validators.required],
       usuario: [undefined],
       senha: [undefined],
-      perfil: [undefined],
-      entidade: [undefined],
       ativo: [undefined],
     });
   }

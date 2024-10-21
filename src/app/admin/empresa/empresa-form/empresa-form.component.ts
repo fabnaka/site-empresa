@@ -27,7 +27,11 @@ export class EmpresaFormComponent implements OnInit {
   ) {
     this.formGroup = this.fb.group({
       id: [undefined],
-      descricao: [undefined, Validators.required],
+      nome: [undefined, Validators.required],
+      cnpj: [undefined, Validators.required],
+      endereco: [undefined, Validators.required],
+      telefone: [undefined, Validators.required],
+      email: [undefined, Validators.required],
       ativo: [undefined],
     });
   }
@@ -71,15 +75,15 @@ export class EmpresaFormComponent implements OnInit {
               ? this.formGroup.get('id')?.value
               : null,
             nome: this.formGroup.get('nome')?.value,
-            cnpj: this.formGroup.get('cnpj')?.value,
+            cnpj: this.formGroup.get('cnpj')?.value.replaceAll('.','').replaceAll('/','').replaceAll('-',''),
             endereco: this.formGroup.get('endereco')?.value,
-            telefone: this.formGroup.get('telefone')?.value,
+            telefone: this.formGroup.get('telefone')?.value.replaceAll('(','').replaceAll(')','').  replaceAll('-',''),
             email: this.formGroup.get('email')?.value
           },
         })
         .subscribe(
           (rs) => {
-            this.alert.showSuccess('Grupo salvo com sucesso!');
+            this.alert.showSuccess('Empresa salva com sucesso!');
             this.voltar();
           },
           (err) => {

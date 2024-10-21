@@ -3,9 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LazyLoadEvent, SelectItem, ConfirmationService } from 'primeng/api';
 import { debounceTime } from 'rxjs/operators';
-//import { FiltrarParticipanteGQL , FiltrarUsuarioGQL } from './../../../generated/graphql'
 import { AlertService } from '../../../services/util/alert.service';
-import { CriarAlterarGrupoParticipanteGQL, FiltrarGrupoParticipanteGQL, } from 'src/app/generated/graphql';
+import { CriarAlterarEmpresaGQL , FiltrarEmpresaGQL, } from 'src/app/generated/graphql';
 
 @Component({
   selector: 'app-empresa-lista',
@@ -20,40 +19,33 @@ export class EmpresaListaComponent implements OnInit {
   loading: boolean = true;
   dados: any | undefined[] = [];
 
-  status: SelectItem[] = [
-    { label: 'Todos', value: '' },
-    { label: 'ATIVO', value: 'S' },
-    { label: 'INATIVO', value: 'N' },
-  ];
-
   columns: any[] = [
     { field: 'id', header: '#', w: '60', sort: true },
-    { field: 'descricao', header: 'Descrição', sort: true },
-    { field: 'azure_group_id', header: 'ID Azure', sort: true },
-    { field: 'ativo', header: 'Ativo?', w: '80', sort: true },
+    { field: 'nome', header: 'Nome', sort: true },
+    { field: 'cnpj', header: 'CNPJ' },
+    { field: 'telefone', header: 'Telefone' },
+    { field: 'email', header: 'Email' },
     { field: 'acao', header: '', w: '80' },
   ];
 
   constructor(
     private fb: FormBuilder,
     //private filtrar: FiltrarUsuarioGQL,
-    private criarAlterar: CriarAlterarGrupoParticipanteGQL,
-    private filtrar: FiltrarGrupoParticipanteGQL,
+    private criarAlterar: CriarAlterarEmpresaGQL,
+    private filtrar: FiltrarEmpresaGQL,
     private route: ActivatedRoute,
     private router: Router,
     private alert: AlertService,
     private confirmationService: ConfirmationService
   ) {
     this.formGroup = this.fb.group({
-      descricao: [undefined],
-      ativo: [undefined],
+      nome: [undefined]
     });
   }
 
   async ngOnInit(): Promise<void> {
     this.formGroup.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
-      this.dt.filter(value.descricao, 'descricao', 'lk');
-      this.dt.filter(value.ativo, 'ativo', 'lk');
+      this.dt.filter(value.nome, 'nome', 'lk');
     });
   }
 
@@ -61,13 +53,15 @@ export class EmpresaListaComponent implements OnInit {
     this.lastLazy = event;
     this.loading = true;
 
+    console.log(event)
+
     this.filtrar
       .fetch({
         filter: event,
       })
       .subscribe(
         (rs) => {
-          this.dados = rs.data.filtrarGrupoParticipante?.rows;
+          this.dados = rs.data.filtrarEmpresa?.rows;
           this.loading = false;
         },
         (err) => {
@@ -87,12 +81,12 @@ export class EmpresaListaComponent implements OnInit {
   confirmar(row: any) {}
 
   criar() {
-    this.router.navigate(['/admin/grupo/criar']);
+    this.router.navigate(['/admin/empresa/criar']);
   }
 
   excluir(id: number) {
     this.confirmationService.confirm({
-      message: "Excluir Grupo?",
+      message: "Excluir Empresa?",
       header: "Confirmar Exclusão",
       icon: "pi pi-exclamation-triangle",
       acceptLabel: "Sim",
@@ -104,7 +98,7 @@ export class EmpresaListaComponent implements OnInit {
             ativo: "N"
           },
         }).subscribe(rs => {
-          this.alert.showSuccess('Grupo excluído com sucesso!');
+          this.alert.showSuccess('Empresa excluído com sucesso!');
           this.load();
         },err => {
           this.alert.showGQLError(err);
