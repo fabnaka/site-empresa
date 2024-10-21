@@ -30,3 +30,8 @@ Para executar o projeto, utilize o seguinte comando:
 1. Para executar o projeto, utilize o seguinte comando:
    ```bash
    npm run start
+
+2. Para efetuar o login na aplicação, utilize o usuário padrão:
+   ```bash
+   usuário: master
+   senha: 123456
