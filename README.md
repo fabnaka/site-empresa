@@ -1,4 +1,4 @@
-# site-empresa-api
+# site-empresa-web
 
 Projeto de apresentação utilizando Angular, Express, GraphQL, PrimeNG.
 
@@ -6,11 +6,6 @@ Projeto de apresentação utilizando Angular, Express, GraphQL, PrimeNG.
 
 - [Instalação](#instalação)
 - [Uso](#uso)
-- [Funcionalidades](#funcionalidades)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Variáveis de Ambiente](#variáveis-de-ambiente)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ## Instalação
 
